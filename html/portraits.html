@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JR Surf</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- social media widgets-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--jquery-->
+    <script src="../jquery.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            opacity: .7;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+        #navbar {
+            overflow: hidden;
+            background-color: #000000;
+            z-index: 1;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            position: fixed;
+            opacity: .7;
+            font-family: Zapfino;
+
+        }
+
+        #navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        #navbar a:hover {
+            background-color: lightgray;
+            color: white;
+        }
+
+        #navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+            opacity: 1;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .container-fluid{
+            top: 0;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        .col1 img, .col2 img {
+            margin-top: 50px;
+            vertical-align: middle;
+        }
+
+        .col1{
+            filter: grayscale(100%);
+            position: static;
+        }
+
+        .pic{
+            filter: blur(5px);
+        }
+
+        .social {
+            padding-top: 0;
+            bottom: 0;
+        }
+
+        .social a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+
+        .social a:hover {
+            background-color: #000;
+        }
+
+        .facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .pic {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .pic:hover {opacity: 0.7;}
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 3; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        /* Modal Content (image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Add Animation */
+        .modal-content, #caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)}
+            to {-webkit-transform:scale(1)}
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div  class="container-fluid" id="navbar">
+        <a class="active" href="main.html">Home</a>
+        <a href="./surf.html">Surf</a>
+        <a href="./adventure.html">Adventure</a>
+        <a href="./portraits.html">Portrait</a>
+        <a href="./motion.html">Motion</a>
+        <a href="./commissions.html">Commissions</a>
+        <a href="./clients.html">Clients</a>
+        <a href="./prints.html">Prints</a>
+        <a href="./about.html">About</a>
+    </div>
+</header>
+
+<!-- Photo Grid -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col1">
+            <img class="pic" src="../images/portrait/pic1.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic2.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic3.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic4.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic5.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic6.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic7.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic8.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic10.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic20.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic34.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic35.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic36.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic37.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic32.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic33.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic14.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic8.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic41.jpeg" style="width: 100%">
+        </div>
+        <div class="col-sm-6 col2">
+            <img class="pic"  src="../images/portrait/pic11.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic12.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic13.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic9.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic15.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic16.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic17.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic30.jpeg" style="width:100%">
+
+
+        </div>
+        <div class="col-sm-3 col1">
+            <img class="pic"  src="../images/portrait/pic21.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic22.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic23.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic24.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic25.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic26.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic27.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic28.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic29.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic18.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic38.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic39.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic40.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic19.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic31.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic24.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic27.jpeg" style="width:100%">
+            <img class="pic"  src="../images/portrait/pic42.jpeg" style="width:100%">
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</div>
+<!--social -->
+<div class="container-fluid social">
+    <div class="row bottom" style="background-color: #333">
+        <div class="col2">
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="col2">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="col2">
+            <a href="#" class="google"><i class="fa fa-google"></i></a>
+        </div>
+        <div class="col2">
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <div class="col2">
+            <a href="#" class="email">Email: ********@hotmail.com</i></a>
+        </div>
+        <div class="col2">
+            <a href="#" class="phone">Phone: (***)***-****</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".pic").on('mouseenter', function(){
+            $(this).css("filter", "blur(0px)");
+        }).on('mouseleave', function () {
+            $(this).css("filter", "blur(5px");
+        })
+    });
+</script>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementsByClassName(".pic");
+    var modalImg = document.getElementById("img01");
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
