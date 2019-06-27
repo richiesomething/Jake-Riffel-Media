@@ -26,11 +26,16 @@
              position: relative;
              opacity: 1;
              z-index: 99;
-
          }
 
         #firstimg {
             position: fixed;
+
+        }
+
+        #bg{
+            width: 1024px;
+            height: 100%;
         }
 
         #enter{
@@ -40,7 +45,7 @@
             z-index: 99;
             font-size: 80px;
             color: wheat;
-            font-family: "Times New Roman";
+            font-family: Zapfino;
 
         }
 
@@ -51,34 +56,18 @@
 <body>
 <header>
     <div class="top">
-        <img src="../images/misc/camera3.jpg" id="firstimg" width="100%" height="auto" align="top">
+        <img src="../images/photo/photo6.jpg" id="firstimg" width="100%" height="100%" align="top">
     </div>
 </header>
 
 <div class="container">
+
     <div class="row">
         <div class="col">
-            <img src="../images/adventure/jrfish.jpg" align="center">
+            <img src="../images/photo/photo9.jpg" id="bg">
         </div>
-    </div>
-    <div class="row">
         <div class="col">
-            <img src="../images/fire/fire1.jpg" align="center">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">            
-            <img src="../images/fire/jrradio.jpg" align="center">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <img src="../images/adventure/jrCaughtFish.jpg" align="center">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <img src="../images/surf/jrsnorkle.jpg" align="center">
+            <img src="../images/photo/photo2.jpg" id="bg">
             <p><a href="main.html" id="enter"><h1>ENTER</h1></a>
         </div>
     </div>
@@ -90,7 +79,7 @@
 <script>
 
     $(window).scroll(function(){
-        $(".top").css("opacity", 1 - $(window).scrollTop() / 5000);
+        $(".top").css("opacity", 1 - $(window).scrollTop() / 3000);
     });
 </script>
 
